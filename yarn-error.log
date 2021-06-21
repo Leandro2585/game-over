@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/bin/node /usr/share/yarn/bin/yarn.js install
+  /usr/local/bin/node /usr/share/yarn/bin/yarn.js
 
 PATH: 
   /home/leandro/.zinit/polaris/sbin:/home/leandro/.zinit/polaris/bin:/home/leandro/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
