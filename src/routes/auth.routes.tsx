@@ -4,9 +4,16 @@ import { Home } from '../pages/Home'
 
 const { Navigator, Screen } = createStackNavigator()
 
-export const AuthRoutes = () => {
+export const AuthRoutes: React.FC = () => {
   return (
-    <Navigator>
+    <Navigator 
+      headerMode="none" 
+      screenOptions={{
+        cardStyle: {
+          backgroundColor: '#242E38'
+        }
+      }}
+    >
       <Screen name="Home" component={Home}/>
     </Navigator>
   )

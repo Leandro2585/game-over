@@ -3,7 +3,7 @@ import { View, Text } from 'react-native'
 import { Avatar } from '../Avatar'
 import { Styles } from './style'
 
-export const Profile = () => {
+export const Profile: React.FC = () => {
   return (
     <View style={Styles.container}>
       <Avatar url="https://github.com/Leandro2585.png"/>
