@@ -16,7 +16,10 @@ export const Styles = StyleSheet.create({
     fontSize: 15,
     textAlign: 'center',
     borderRightWidth: 1,
-    borderColor: theme.colors.line
+    borderColor: theme.colors.lineBlue
+  },
+  iconWrapper: {
+    
   },
   icon: {
     width: 24,
