@@ -1,10 +1,29 @@
-import { View } from 'react-native'
+import { ScrollView } from 'react-native'
+import { Category } from '../'
+import { useCategory } from '../../contexts/CategoryContext'
+import { categories } from '../../utils/Categories'
 import { Styles } from './style'
 
-export const CategorySelect = () => {
+export const CategorySelect: React.FC = () => {
+  const { currentCategorySelected, selectCategory } = useCategory()
+
   return (
-    <View style={Styles.container}>
+    <ScrollView 
+      horizontal
+      style={Styles.container}
+      showsHorizontalScrollIndicator={false}
+      contentContainerStyle={{ paddingRight: 40 }}
+    >
+      {categories.map((category) => {
+        <Category 
+          key={category.id}
+          title={category.title} 
+          icon={category.icon}
+          onPress={() => selectCategory(category.id)}
+          checked={category.id === currentCategorySelected} 
+        />
+      })}
+    </ScrollView>
       
-    </View>
   )
 }
