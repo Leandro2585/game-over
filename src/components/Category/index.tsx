@@ -1,6 +1,7 @@
 import React from 'react'
+import { LinearGradient } from 'expo-linear-gradient'
 import { View, Text } from 'react-native'
-import { LinearGradient, SvgProps } from 'react-native-svg'
+import { SvgProps } from 'react-native-svg'
 import { RectButton, RectButtonProps } from 'react-native-gesture-handler'
 import { Styles } from './style'
 import { theme } from '../../styles/theme'
