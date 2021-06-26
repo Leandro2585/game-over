@@ -33,7 +33,7 @@ export const Appointment: React.FC<Props> = ({ data, ...props }: Props) => {
           style={Styles.guildIconContainer} 
           colors={[background, secondary100]}
         >
-          <GuildIcon/>
+          <GuildIcon guildId={data.guild.id} iconId={data.guild.icon}/>
         </LinearGradient>
         <View style={Styles.content}>
           <View style={Styles.header}>

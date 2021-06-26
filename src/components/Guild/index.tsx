@@ -23,7 +23,7 @@ export const Guild: React.FC<Props> = ({data, ...props}: Props) => {
       activeOpacity={0.7}
       {...props}
     >
-      <GuildIcon/>
+      <GuildIcon guildId={data.id} iconId={data.icon}/>
       <View style={Styles.content}>
         <View>
           <Text style={Styles.title}>{data.name}</Text>
