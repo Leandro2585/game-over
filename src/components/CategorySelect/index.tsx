@@ -1,6 +1,7 @@
+import React from 'react'
 import { ScrollView } from 'react-native'
 import { Category } from '../'
-import { useCategory } from '../../contexts/CategoryContext'
+import { useCategory } from '../../hooks/category'
 import { categories } from '../../fakes/Categories'
 import { Styles } from './style'
 

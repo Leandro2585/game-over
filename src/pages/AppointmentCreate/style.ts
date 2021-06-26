@@ -19,7 +19,7 @@ export const Styles = StyleSheet.create({
     height: 68,
     flexDirection: 'row',
     borderColor: theme.colors.secondary50,
-    borderWith: 1,
+    borderWidth: 1,
     borderRadius: 8,
     alignItems: 'center',
     paddingRight: 24,
@@ -32,9 +32,10 @@ export const Styles = StyleSheet.create({
   image: {
     width: 64,
     height: 68,
-    backgroundColor: theme.colors.secondary50,
+    backgroundColor: theme.colors.secondary40,
     borderWidth: 1,
-    borderRadius: 8
+    borderRadius: 8,
+    borderColor: theme.colors.secondary50
   },
   field: {
     width: '100%',

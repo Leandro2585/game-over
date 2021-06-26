@@ -1,6 +1,7 @@
 import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
 import { Home, SignIn, AppointmentDetails, AppointmentCreate } from '../pages'
+import { Background } from '../components'
 
 const { Navigator, Screen } = createStackNavigator()
 
@@ -15,7 +16,6 @@ export const AuthRoutes: React.FC = () => {
       }}
     >
       <Screen name="Home" component={Home}/>
-      <Screen name="SignIn" component={SignIn}/>
       <Screen name="AppointmentDetails" component={AppointmentDetails}/>
       <Screen name="AppointmentCreate" component={AppointmentCreate}/>
     </Navigator>

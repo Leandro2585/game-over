@@ -13,22 +13,18 @@ type Props = {
 }
 
 export const Header: React.FC<Props> = ({ title, action }: Props) => {
-  const { heading, secondary100, secondary40 } = theme.colors
+  const { heading, secondary100, background } = theme.colors
   const navigation = useNavigation()
   const handleGoBack = () => navigation.goBack()
   return(
-    <LinearGradient style={Styles.container} colors={[secondary100, secondary40]}>
+    <LinearGradient style={Styles.container} colors={[secondary100, background]}>
       <BorderlessButton onPress={handleGoBack}>
         <Feather name="arrow-left" size={24} color={heading}/>
       </BorderlessButton>
       <Text style={Styles.title}>
         { title }
       </Text>
-      { action && (
-      <View>
-        {action}
-      </View>
-      )}
+      { action ? <View>{action}</View> : <View style={{ width: 24 }} />}
     </LinearGradient>
   )
 }

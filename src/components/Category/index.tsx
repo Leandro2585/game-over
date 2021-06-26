@@ -15,12 +15,12 @@ type Props = RectButtonProps & {
 export const Category: React.FC<Props> = ({
   title, icon: Icon, checked = false, ...props
 }: Props) => {
-  const { secondary50, secondary70, secondary85, secondary40 } = theme.colors
+  const { background, secondary100, secondary50, secondary85, secondary40 } = theme.colors
   return (
     <RectButton {...props}>
       <LinearGradient
         style={Styles.container}
-        colors={[secondary50, secondary70]}>
+        colors={[background, secondary100]}>
 
         <LinearGradient 
           style={[Styles.content, { opacity: checked ? 1 : 0.5}]}

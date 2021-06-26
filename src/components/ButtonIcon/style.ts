@@ -7,19 +7,19 @@ export const Styles = StyleSheet.create({
     height: 56,
     backgroundColor: theme.colors.primary,
     borderRadius: 8,
+    paddingHorizontal: 24,
     flexDirection: 'row',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   title: {
     flex: 1,
     color: theme.colors.heading,
     fontSize: 15,
     textAlign: 'center',
-    borderRightWidth: 1,
-    borderColor: theme.colors.lineBlue,
     fontFamily: theme.fonts.text500
   },
-  iconWrapper: {},
+  iconWrapper: {
+  },
   icon: {
     width: 24,
     height: 18

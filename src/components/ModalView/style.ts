@@ -8,7 +8,7 @@ export const Styles = StyleSheet.create({
   },
   overlay: {
     flex: 1,
-    backgroundColor: theme.colors.overlay
+    backgroundColor: theme.colors.overlay,
   },
   bar: {
     width: 39,
@@ -16,7 +16,6 @@ export const Styles = StyleSheet.create({
     borderRadius: 2,
     backgroundColor: theme.colors.secondary30,
     alignSelf: 'center',
-    marginTop: 13,
-    marginBottom: 103
+    marginTop: 13
   }
 })

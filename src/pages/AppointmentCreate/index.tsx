@@ -5,13 +5,15 @@ import { Feather } from '@expo/vector-icons'
 import { Background, Header, ModalView, CategorySelect, GuildIcon, SmallInput, TextArea, Button, GuildProps } from '../../components'
 import { Styles } from './style'
 import { theme } from '../../styles/theme'
-import { Guilds } from '../Guilds'
+import { Guilds } from '../'
 
 export const AppointmentCreate: React.FC = () => {
   const [openGuildsModal, setOpenGuildsModal] = useState(false)
   const [guild, setGuild] = useState<GuildProps>({} as GuildProps)
   
   const handleOpenGuildsModal = () => setOpenGuildsModal(true)
+
+  const handleCloseOpenGuildsModal = () => setOpenGuildsModal(false)
 
   const handleGuildSelect = (guildSelected: GuildProps) => {
     setGuild(guildSelected)
@@ -23,8 +25,8 @@ export const AppointmentCreate: React.FC = () => {
       style={Styles.container}
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
     >
-      <ScrollView>
-        <Background>
+      <Background>
+        <ScrollView>
           <Header title="Agendar partida"/>
           <Text style={[
             Styles.label, { 
@@ -56,7 +58,7 @@ export const AppointmentCreate: React.FC = () => {
 
             <View style={Styles.field}>
               <View>
-                <Text style={Styles.label}>Dia e mês</Text>
+                <Text style={[Styles.label, { paddingBottom: 12 }]}>Dia e mês</Text>
                 <View style={Styles.column}>
                   <SmallInput maxLength={2}/>
                   <Text style={Styles.divider}>/</Text>
@@ -64,7 +66,7 @@ export const AppointmentCreate: React.FC = () => {
                 </View>
               </View>
               <View>
-                <Text style={Styles.label}>Horário</Text>
+                <Text style={[Styles.label, { paddingBottom: 12 }]}>Horário</Text>
                 <View style={Styles.column}>
                   <SmallInput maxLength={2}/>
                   <Text style={Styles.divider}>:</Text>
@@ -87,10 +89,9 @@ export const AppointmentCreate: React.FC = () => {
               <Button title="Agendar"/>
             </View>
           </View>
-        </Background>
-      </ScrollView>
-
-      <ModalView visible={openGuildsModal}>
+        </ScrollView>
+      </Background>
+      <ModalView visible={openGuildsModal} closeModal={handleCloseOpenGuildsModal}>
         <Guilds handleGuildsSelected={handleGuildSelect}/>
       </ModalView>
     </KeyboardAvoidingView>

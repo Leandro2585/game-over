@@ -1,13 +1,14 @@
 import React from 'react'
 import { Text, View } from 'react-native'
 import { RectButton, RectButtonProps } from 'react-native-gesture-handler'
-import { GuildIcon } from '../'
-import CalendarSvg from '../../assets/svgs/calendar.svg'
-import PlayerSvg from '../../assets/svgs/player.svg'
+import { LinearGradient } from 'expo-linear-gradient'
+import { GuildIcon, GuildProps } from '../'
+import PlayerOn from '../../assets/images/player-on.png'
+import PlayerOwner from '../../assets/images/player-owner.png'
+// import CalendarSvg from '../../assets/svgs/calendar.svg'
 import { theme } from '../../styles/theme'
 import { categories } from '../../fakes/Categories'
 import { Styles } from './style'
-import { GuildProps } from '../Guild'
 
 export type AppointmentProps = {
   id: string;
@@ -21,15 +22,19 @@ type Props = RectButtonProps & {
   data: AppointmentProps;
 }
 
-export const Appointment: React.FC<Props> = ({ data, ...props}: Props) => {
+export const Appointment: React.FC<Props> = ({ data, ...rest }: Props) => {
   const [category] = categories.filter((item) => item.id === data.category)
   const { owner } = data.guild
-  const { primary, on } = theme.colors
+  const { primary, on, background, secondary100 } = theme.colors
   return (
-    <RectButton {...props}>
+    <RectButton {...rest}>
       <View style={Styles.container}>
-        <GuildIcon/>
-
+        <LinearGradient 
+          style={Styles.guildIconContainer} 
+          colors={[background, secondary100]}
+        >
+          <GuildIcon/>
+        </LinearGradient>
         <View style={Styles.content}>
           <View style={Styles.header}>
             <Text style={Styles.title}>{data.guild.name}</Text>
@@ -38,11 +43,11 @@ export const Appointment: React.FC<Props> = ({ data, ...props}: Props) => {
           
           <View style={Styles.footer}>
             <View style={Styles.dateInfo}>
-              <CalendarSvg/>
+              {/* <CalendarSvg/> */}
               <Text style={Styles.date}>{ data.date}</Text>
             </View>
             <View style={Styles.playerInfo}>
-              <PlayerSvg fill={ owner ? primary : on }/>
+              { owner ? <PlayerOwner/> : <PlayerOn/> }
               <Text style={[Styles.player, { color: owner ? primary : on }]}>
                 { owner ? 'Anfitrião' : 'Visitante' }
               </Text>
