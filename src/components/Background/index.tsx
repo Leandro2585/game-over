@@ -1,7 +1,7 @@
 import { LinearGradient } from 'expo-linear-gradient';
 import React, { ReactNode } from 'react';
 import { theme } from '../../styles/theme';
-import { styles } from './styles';
+import { Styles } from './style';
 
 type Props = {
   children: ReactNode;
@@ -12,7 +12,7 @@ export function Background({ children }: Props) {
 
   return (
     <LinearGradient
-      style={styles.container}
+      style={Styles.container}
       colors={[secondary80, secondary100]}
     >
       {children}

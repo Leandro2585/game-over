@@ -6,7 +6,7 @@ import { Styles } from './style'
 
 export const ButtonAdd: React.FC<RectButtonProps> = ({ ...rest }: RectButtonProps) => {
   return (
-    <RectButton style={Styles.container}>
+    <RectButton style={Styles.container} { ...rest }>
       <MaterialCommunityIcons name="plus" color={theme.colors.heading} size={24}/>
     </RectButton>
   )

@@ -1,7 +1,11 @@
 import React, { ReactNode } from 'react'
-import { View } from 'react-native'
-import { } from 'expo-linear-gradient'
+import { Text, View } from 'react-native'
+import { Feather } from '@expo/vector-icons'
+import { LinearGradient } from 'expo-linear-gradient'
 import { Styles } from './style'
+import { theme } from '../../styles/theme'
+import { BorderlessButton } from 'react-native-gesture-handler'
+import { useNavigation } from '@react-navigation/native'
 
 type Props = {
   title: string;
@@ -9,7 +13,22 @@ type Props = {
 }
 
 export const Header: React.FC<Props> = ({ title, action }: Props) => {
+  const { heading, secondary100, secondary40 } = theme.colors
+  const navigation = useNavigation()
+  const handleGoBack = () => navigation.goBack()
   return(
-    <View></View>
+    <LinearGradient style={Styles.container} colors={[secondary100, secondary40]}>
+      <BorderlessButton onPress={handleGoBack}>
+        <Feather name="arrow-left" size={24} color={heading}/>
+      </BorderlessButton>
+      <Text style={Styles.title}>
+        { title }
+      </Text>
+      { action && (
+      <View>
+        {action}
+      </View>
+      )}
+    </LinearGradient>
   )
 }

@@ -1,7 +1,7 @@
 import { ScrollView } from 'react-native'
 import { Category } from '../'
 import { useCategory } from '../../contexts/CategoryContext'
-import { categories } from '../../utils/Categories'
+import { categories } from '../../fakes/Categories'
 import { Styles } from './style'
 
 export const CategorySelect: React.FC = () => {

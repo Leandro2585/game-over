@@ -18,10 +18,5 @@ export const Styles = StyleSheet.create({
     borderRightWidth: 1,
     borderColor: theme.colors.lineBlue,
     fontFamily: theme.fonts.text500
-  },
-  iconWrapper: {},
-  icon: {
-    width: 24,
-    height: 18
   }
 })

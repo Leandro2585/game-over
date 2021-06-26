@@ -5,7 +5,7 @@ import { GuildIcon } from '../'
 import CalendarSvg from '../../assets/svgs/calendar.svg'
 import PlayerSvg from '../../assets/svgs/player.svg'
 import { theme } from '../../styles/theme'
-import { categories } from '../../utils/Categories'
+import { categories } from '../../fakes/Categories'
 import { Styles } from './style'
 
 export type GuildProps = {
