@@ -1,8 +1,14 @@
 import React, { createContext, ReactNode, useContext, useState } from 'react'
 import * as AuthSession from 'expo-auth-session'
-import { CDN_IMAGE, SCOPE, CLIENT_ID, REDIRECT_URI, RESPONSE_TYPE } from '../configs/discord'
 import { api } from '../services/api'
 
+const { 
+  SCOPE, 
+  CLIENT_ID, 
+  CDN_IMAGE, 
+  REDIRECT_URI, 
+  RESPONSE_TYPE 
+} = process.env
 type User = {
   id: string;
   username: string;
@@ -24,7 +30,8 @@ type AuthProviderProps = {
 
 type AuthorizationResponse = AuthSession.AuthSessionResult & {
   params: {
-    access_token: string;
+    access_token?: string;
+    error?: string;
   }
 }
 
@@ -40,27 +47,27 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }: AuthProv
       setLoading(true)
       const { params, type } = await AuthSession.startAsync({ authUrl }) as AuthorizationResponse
     
-      if(type === 'success') {
+      if(type === 'success' && !params.error) {
 
         api.defaults.headers.authorization = `Bearer ${params.access_token}`
         const userData = await api.get(`/users/@me`)
         
         const firstName = userData.data.username.split(' ')[0]
-
-        setUser({
-          id: userData.data.id,
-          firstName,
-          username: userData.data.username,
-          email: userData.data.email,
-          avatar: `${CDN_IMAGE}/avatars/${userData.data.id}/${userData.data.avatar}.png`,
-          token: params.access_token
-        })
-        setLoading(false)
-      } else {
-        setLoading(false)
+        if(params.access_token) {
+          setUser({
+            id: userData.data.id,
+            firstName,
+            username: userData.data.username,
+            email: userData.data.email,
+            avatar: `${CDN_IMAGE}/avatars/${userData.data.id}/${userData.data.avatar}.png`,
+            token: params.access_token
+          })
+        }
       }
     } catch {
       throw new Error('Não foi possível concluir seu login')
+    } finally {
+      setLoading(false)
     }
   }
   
@@ -75,7 +82,3 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }: AuthProv
   )
 }
 
-export const useAuth = () => {
-  const context = useContext(AuthContext)
-  return context
-}

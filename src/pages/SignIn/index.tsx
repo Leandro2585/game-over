@@ -12,7 +12,7 @@ export const SignIn: React.FC = () => {
 
   const handleSingIn = async () => {
     try {
-
+      await authenticate()
     } catch (error) {
       Alert.alert(error)
     }

@@ -33,7 +33,7 @@ export const AppointmentDetails: React.FC = () => {
         data={members}
         style={Styles.members}
         keyExtractor={member => member.id}
-        ItemSeparatorComponent={() => <ListDivider/>}
+        ItemSeparatorComponent={() => <ListDivider isCentered/>}
         renderItem={({ item }) => (
           <Member data={item} />
         )}

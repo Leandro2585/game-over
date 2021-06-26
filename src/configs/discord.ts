@@ -1,5 +1,0 @@
-export const REDIRECT_URI = 'https%3A%2F%2Fauth.expo.io%2Fgameover'
-export const SCOPE = 'guilds%20connections%20email%20identify'
-export const RESPONSE_TYPE = 'token'
-export const CLIENT_ID = '858320096984432650'
-export const CDN_IMAGE = 'https://cdn.discordapp.com'
