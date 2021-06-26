@@ -7,9 +7,9 @@ type Props = RectButtonProps & {
   title: string;
 }
 
-export const Button: React.FC<Props> = ({ title, ...rest }: Props) => {
+export const Button: React.FC<Props> = ({ title, ...props }: Props) => {
   return (
-    <RectButton style={Styles.container} {...rest}>
+    <RectButton style={Styles.container} {...props}>
       <Text style={Styles.title}>{title}</Text>
     </RectButton>
   )

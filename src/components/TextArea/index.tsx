@@ -4,11 +4,11 @@ import { Styles } from './style'
 
 type Props = TextInputProps;
 
-export const TextArea: React.FC<Props> = ({ ...rest }: Props ) => {
+export const TextArea: React.FC<Props> = ({ ...props }: Props ) => {
   return(
     <TextInput
       style={Styles.container}
-      {...rest}
+      {...props}
     />
   )
 }

@@ -8,9 +8,9 @@ type Props = ModalProps & {
   closeModal(): void;
 }
 
-export const ModalView: React.FC<Props> = ({ children, closeModal, ...rest }: Props) => {
+export const ModalView: React.FC<Props> = ({ children, closeModal, ...props }: Props) => {
   return (
-    <Modal transparent animationType="slide" statusBarTranslucent {...rest}>
+    <Modal transparent animationType="slide" statusBarTranslucent {...props}>
       <TouchableWithoutFeedback onPress={closeModal}>
         <View style={Styles.overlay}>
           <View style={Styles.container}>

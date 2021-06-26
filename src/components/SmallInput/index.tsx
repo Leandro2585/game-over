@@ -4,12 +4,12 @@ import { Styles } from './style'
 
 type Props = TextInputProps
 
-export const SmallInput: React.FC<Props> = ({ ...rest }: Props) => {
+export const SmallInput: React.FC<Props> = ({ ...props }: Props) => {
   return (
     <TextInput
       style={Styles.container}
       keyboardType="numeric"
-      { ...rest }
+      { ...props }
     />
   )
 }
