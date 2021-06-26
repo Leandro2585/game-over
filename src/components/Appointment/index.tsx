@@ -7,13 +7,7 @@ import PlayerSvg from '../../assets/svgs/player.svg'
 import { theme } from '../../styles/theme'
 import { categories } from '../../fakes/Categories'
 import { Styles } from './style'
-
-export type GuildProps = {
-  id: string;
-  name: string;
-  icon: null;
-  owner: boolean;
-}
+import { GuildProps } from '../Guild'
 
 export type AppointmentProps = {
   id: string;
